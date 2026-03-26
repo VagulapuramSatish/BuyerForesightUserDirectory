@@ -54,6 +54,7 @@ class UserItemDetails extends Component {
 
   renderSuccessView = () => {
     const {userDetails} = this.state
+    const {history} = this.props
 
     if (!userDetails) {
       return (
@@ -63,8 +64,15 @@ class UserItemDetails extends Component {
       )
     }
 
-    const {name, username, email, phone, website, company, address} =
-      userDetails
+    const {
+      name,
+      username,
+      email,
+      phone,
+      website,
+      company,
+      address,
+    } = userDetails
 
     return (
       <DetailCard>
@@ -95,7 +103,7 @@ class UserItemDetails extends Component {
             {address.street}, {address.suite}, {address.city}, {address.zipcode}
           </Value>
         </DetailRow>
-        <BackButton onClick={() => this.props.history.goBack()}>
+        <BackButton type="button" onClick={() => history.goBack()}>
           Back to Users
         </BackButton>
       </DetailCard>
@@ -105,7 +113,9 @@ class UserItemDetails extends Component {
   renderFailureView = () => (
     <CenterView>
       <h3>Something went wrong</h3>
-      <button onClick={this.onRetry}>Retry</button>
+      <button type="button" onClick={this.onRetry}>
+        Retry
+      </button>
     </CenterView>
   )
 

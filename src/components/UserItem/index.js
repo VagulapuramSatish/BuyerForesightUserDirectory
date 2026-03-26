@@ -8,7 +8,6 @@ import {
 
 const UserItem = props => {
   const {userDetails} = props
-
   const {id, name, email, phone, company} = userDetails
 
   return (

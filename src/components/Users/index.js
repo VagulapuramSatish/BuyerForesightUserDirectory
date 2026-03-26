@@ -66,7 +66,7 @@ class Users extends Component {
   getFilteredUsers = () => {
     const {usersList, searchValue, sortOption} = this.state
 
-    let filtered = usersList.filter(
+    const filtered = usersList.filter(
       user =>
         user.name.toLowerCase().includes(searchValue.toLowerCase()) ||
         user.email.toLowerCase().includes(searchValue.toLowerCase()),
@@ -118,7 +118,9 @@ class Users extends Component {
   renderFailureView = () => (
     <CenterView>
       <h3>Something went wrong</h3>
-      <button onClick={this.onRetry}>Retry</button>
+      <button type="button" onClick={this.onRetry}>
+        Retry
+      </button>
     </CenterView>
   )
 
